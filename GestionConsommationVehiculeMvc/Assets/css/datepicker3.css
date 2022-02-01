@@ -19,7 +19,8 @@
 {
   width: 220px;
 }
-.datepicker.datepicker-rtl {
+.datepicker.datepicker-rtl 
+{
   direction: rtl;
 }
 .datepicker.datepicker-rtl table tr td span {
