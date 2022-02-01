@@ -18,6 +18,7 @@ $(function() {
         scaleColor: false,
         barColor: '#f9243f'
     });
+
 });
 
 $(function() {
