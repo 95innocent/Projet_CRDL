@@ -9,7 +9,7 @@ using GestionConsommationVehiculeMvc.Models;
 
 namespace GestionConsommationVehiculeMvc.Controllers
 {
-    public class AffectationController : Controller
+    public class AffectationController :Controller
     {
         private GestionConsommationVehiculeEntities12 db = new GestionConsommationVehiculeEntities12();
 
