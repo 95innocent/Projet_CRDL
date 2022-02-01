@@ -31,7 +31,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
             affectation affectation = db.affectations.Find(id);
             if (affectation == null)
             {
-                return HttpNotFound();
+                 return HttpNotFound();
             }
             return View(affectation);
         }
