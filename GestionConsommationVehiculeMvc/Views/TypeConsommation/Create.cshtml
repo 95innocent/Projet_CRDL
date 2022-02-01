@@ -1,0 +1,41 @@
+﻿@model GestionConsommationVehiculeMvc.Models.typeconsommation
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main"style="background-color:rgb(0, 255, 255)">
+
+<div class="fa fa-home" style="text-align:center; font-size:50px"> Administrateurs</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+            <div class="form-group">
+                <label>TypeConsommation:</label>
+                <input type="text" placeholder="Entrer NomConsommation" class="form-control" autocomplete="off" required="required" name="NomTypeConsommation" />
+            </div><hr />
+
+        <div class="editor-label">
+
+            @Html.LabelFor(model => model.document)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.document)
+            @Html.ValidationMessageFor(model => model.document)
+        </div><hr />
+
+            <div class="form-group">
+                <input type="submit" value="Enregistrer" class="form-control btn btn-warning"/>
+            </div>
+    </fieldset>
+}
+
+<div style="font-size:20px">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+</div>

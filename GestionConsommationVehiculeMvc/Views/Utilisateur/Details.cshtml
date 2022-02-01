@@ -1,0 +1,75 @@
+﻿@model GestionConsommationVehiculeMvc.Models.utilisateur
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main"style="background-color:white">
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>utilisateur</legend>
+
+    <div class="display-label">
+
+         @Html.DisplayNameFor(model => model.Nom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Prenon)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Prenon)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.username)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.username)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.telephone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.telephone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.service.NomService)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.service.NomService)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.profile.NomProfile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.profile.NomProfile)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+</div>

@@ -1,0 +1,38 @@
+﻿
+<!DOCTYPE html>
+<html>
+@RenderPage("~/Views/Partial/_Head.cshtml")
+<body>
+    @RenderPage("~/Views/Partial/_Nav.cshtml")
+    @RenderPage("~/Views/Partial/_Sidebar.cshtml")
+
+    @*content*@
+
+    @RenderBody()
+
+    @Scripts.Render("~/Assets/js")
+    @RenderSection("Scripts",required:false)
+	<script>
+	    window.onload = function ()
+	    {
+	        var chart1 = document.getElementById("line-chart").getContext("2d");
+	        window.myLine = new Chart(chart1).Line(lineChartData, {
+	            responsive: true,
+	            scaleLineColor: "rgba(0,0,0,.2)",
+	            scaleGridLineColor: "rgba(0,0,0,.05)",
+	            scaleFontColor: "#c5c7cc"
+	        });
+	    };
+
+	    var StrValue = "@((string)ViewBag.msg)"
+	    if (StrValue !== null && StrValue !== '') {
+	        swal("Bon travail!", StrValue, "success");
+	    }
+
+	</script>
+
+
+
+
+</body>
+</html>

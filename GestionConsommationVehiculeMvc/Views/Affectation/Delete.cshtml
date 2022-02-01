@@ -1,0 +1,57 @@
+﻿@model GestionConsommationVehiculeMvc.Models.affectation
+
+@{
+    ViewBag.Title = "Delete";
+Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(255, 255, 255)">
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>affectation</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.vehicule.NumeroImatriculation)
+    </div>
+
+    <div class="display-field">
+        @Html.DisplayFor(model => model.vehicule.NumeroImatriculation)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.service.NomService)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.service.NomService)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.utilisateur.Nom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.utilisateur.Nom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateAffectation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateAffectation)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.occupe)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.occupe)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+</div>

@@ -1,0 +1,93 @@
+﻿@model GestionConsommationVehiculeMvc.Models.consommation
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color: rgb(0, 255, 255)">
+    <div class="fa fa-home" style="text-align: center; font-size: 50px">Administrateurs</div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            @{
+                
+        var date = DateTime.Now;
+            }
+            <legend></legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IdVehicule, "vehicule:")
+            </div>
+            <div class="col-md-6" style="font-size: 20px">
+                @Html.DropDownList("IdVehicule", null, "selectionner Vehicule",
+            htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdVehicule)
+            </div>
+
+
+            <div class="col-md-6" style="font-size: 20px">
+                @Html.DropDownList("IdTypeConsommation", null, "selectionner consommation",
+            htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdTypeConsommation)
+            </div>
+
+            <div class="col-md-6" style="font-size: 20px">
+                <label>PrixUnitaire:</label>
+                <input type="number" name="PrixUnitaire" autocomplete="off" class="form-control" id="unit_price" />
+            </div>
+
+            <div class="col-md-6" style="font-size: 20px">
+                <label>Quantite:</label>
+                <input type="number" name="quantite" autocomplete="off" class="form-control" id="qty" />
+            </div>
+            <div class="col-md-6" style="font-size: 20px">
+                <label>MontantPaye:</label>
+                <input type="number" class="form-control" readonly="" id="total" name="PrixTotal" />
+            </div>
+
+
+
+            <div class="col-md-6" style="font-size: 20px">
+                <label>DateDebut:</label>
+                <input type="date" class="form-control" name="DateDebut" />
+            </div>
+            <div class="col-md-6" style="font-size: 20px">
+                <label>DateFin:</label>
+                <input type="date" class="form-control" name="DateFin" />
+            </div>
+            <div class="col-md-6" style="font-size: 20px">
+                <label>NumeroDocument:</label>
+                <input type="text" class="form-control" autocomplete="off" name="NumeroDocument" />
+            </div>
+
+            <div class="col-md-6" style="font-size: 20px">
+                <label>DateConsommation:</label>
+                <input value="@date"  class="form-control" readonly="" name="DateConsommation"/>
+            </div>
+
+
+
+
+            <div class="col-md-6" style="font-size: 20px">
+                <label></label>
+                <input type="submit" value="Enregistrer" class="form-control btn btn-warning" />
+            </div>
+
+
+            <div class="col-md-6" style="font-size: 20px">
+                <label>Expirable</label>
+                @Html.EditorFor(model => model.Expirable)
+                @Html.ValidationMessageFor(model => model.Expirable)
+            </div>
+            <br />
+        </fieldset>
+    }
+
+    <div style="font-size: 20px">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@model GestionConsommationVehiculeMvc.Models.vehicule
+
+@{
+    ViewBag.Title = "Details";
+Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(255, 255, 255)">
+
+<h1>Details</h1>
+
+<fieldset>
+    <legend></legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumeroImatriculation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumeroImatriculation)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modele)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modele)
+
+    </div>
+
+  
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.marque)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.marque)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumeroCarteRose)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumeroCarteRose)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Numerochasse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Numerochasse)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.couleur)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.couleur)
+    </div>
+</fieldset>
+<p style="font-size:30px">
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+</div>

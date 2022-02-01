@@ -1,0 +1,73 @@
+﻿@model GestionConsommationVehiculeMvc.Models.utilisateur
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main"style="background-color:rgb(0, 255, 255)">
+
+ <div class="fa fa-home" style="text-align: center; font-size: 50px">Administrateurs</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+        <legend></legend>
+
+     <div class="col-md-6">
+            <label>Nom:</label>
+            <input type="text" name="Nom" placeholder="Entrer Votre Nom" autocomplete="off" required="required" class="form-control"/>
+      </div>
+        
+      <div class="col-md-6">
+            <label>Prenom:</label>
+            <input type="text" name="Prenon" placeholder="Entrer Votre Prenom" autocomplete="off" required="required" class="form-control"/>
+      </div>
+        
+          <div class="col-md-6">
+            <label>Email:</label>
+            <input type="text" name="email" placeholder="Entrer Votre Email" autocomplete="off" required="required" class="form-control"/>
+        </div>
+
+        <div class="col-md-6">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Entrer Votre Username" autocomplete="off" required="required" class="form-control"/>
+        </div>
+
+        <div class="col-md-6">
+            <label>Password:</label>
+            <input type="text" name="password" placeholder="Entrer Votre Password" autocomplete="off" required="required" class="form-control"/>
+        </div>
+        <div class="col-md-6">
+            <label>Telephone:</label>
+            <input type="text" name="telephone" autocomplete="off" placeholder="Entrer Votre Telephone" required="required" class="form-control"/>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdService, "service:")
+        </div>
+        <div class="col-md-6">
+            @Html.DropDownList("IdService", null, "selectionner Service",
+            htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdService)
+        </div>
+
+
+        <div class="col-md-6">
+            @Html.DropDownList("IdProfile", null, "selectionner Profile",
+            htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IdProfile)
+        </div><br/>
+        <label></label>
+       <div class="col-md-6 col-md-offset-3">
+           <input type="submit" value="Enregistrer" class="form-control btn btn-warning"/>
+        </div>
+    </fieldset>
+}
+
+<div style="font-size:20px">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+</div>

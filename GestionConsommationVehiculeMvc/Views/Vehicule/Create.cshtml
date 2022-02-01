@@ -1,0 +1,65 @@
+﻿@model GestionConsommationVehiculeMvc.Models.vehicule
+
+@{
+    ViewBag.Title = "Create";
+Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(0, 255, 255)">
+
+    <div class="fa fa-home" style="text-align:center; font-size:50px"> Administrateurs</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>  </legend>
+
+        
+        <div class="col-md-6" style="font-size:20px">
+            <label>Plaque:</label>
+            <input type="text" name="NumeroImatriculation" required="required" class="form-control" autocomplete="off" placeholder="Entrer Plaque"/>
+        </div>
+
+        
+        <div class="col-md-6" style="font-size:20px">
+            <label>Modele:</label>
+            <input type="text" name="modele" required="required" class="form-control" autocomplete="off" placeholder="Entrer Modele"/>
+        </div>
+
+
+       
+        <div class="col-md-6" style="font-size:20px">
+            <label>Marque:</label>
+            <input type="text" name="marque" required="required" class="form-control" autocomplete="off" placeholder="Entrer Marque"/>
+        </div>
+
+  
+        <div class="col-md-6">
+            <label>CarteRose:</label>
+            <input type="text" name="NumeroCarteRose" required="required" class="form-control" autocomplete="off" placeholder="Entrer Numero"/>
+        </div>
+
+        
+        <div class="col-md-6" style="font-size:20px">
+            <label>NumeroMoteur:</label>
+            <input type="text" name="Numerochasse" required="required" class="form-control" autocomplete="off" placeholder="Entrer Numero"/>
+        </div>
+
+
+        <div class="col-md-6" style="font-size:20px">
+            <label>Couleur:</label>
+            <input type="text" name="couleur" required="required" class="form-control" autocomplete="off" placeholder="Entrer Couleur"/>
+        </div>
+
+        <div class="col-md-6" style="font-size:20px">
+            <label></label><br/>
+           <input type="submit" value="Enregistrer" class="form-control btn btn-warning"/>
+        </div>
+    </fieldset>
+}
+
+<div style="font-size:30px; color:red">
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+</div>

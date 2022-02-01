@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8c996b3147fb4fe0a9add1720eee5a0a" Name="Diagramme1">
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.affectation" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.consommation" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.profile" Width="1.5" PointX="3.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.service" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.typeconsommation" Width="1.5" PointX="3.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.utilisateur" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.vehicule" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__affectati__IdSer__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__affectati__IdUse__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__affectati__IdVeh__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__consommat__IdTyp__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__consommat__IdVeh__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__utilisate__IdPro__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__utilisate__IdSer__68487DD7" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

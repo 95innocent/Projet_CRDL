@@ -1,0 +1,29 @@
+﻿
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar" style="background-color:rgb(0, 0, 0)">
+		<div class="profile-sidebar">
+			<div class="profile-userpic">
+				<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+			</div>
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name" style="color:white">@Session["username"]</div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"  style="color:white"></span>Online</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="divider"></div>
+
+		<ul class="nav menu">
+
+			<li class="active"><a href="#"><em class="fa fa-home">&nbsp;</em> <b style="color:rgb(255, 255, 255 ) ;font-size:15px">Dashboard</b></a></li>
+			
+			<li><a href="@Url.Action("Index1","Vehicule")"><em class="fa fa-bar-chart">&nbsp;</em><b style="color:rgb(255, 255, 255) ;font-size:15px">ListeVehicule</b></a></li>
+			<li><a href="@Url.Action("Index1","Utilisateur")"><em class="fa fa-bar-chart">&nbsp;</em><b style="color:rgb(255, 255, 255) ;font-size:15px">ListeEmployes</b></a></li>
+            <li><a href="@Url.Action("Index4","Consommation")"><em class="fa fa-calendar">&nbsp;</em><b style="color:rgb(255, 255, 255) ;font-size:15px">RapportDetaille</b></a></li>
+            <li><a href="@Url.Action("Index5","Consommation")"><em class="fa fa-bar-chart">&nbsp;</em> <b style="color:rgb(255, 255, 255) ;font-size:15px">RapportJournalier</b></a></li>
+			
+			
+
+			<li><a href="@Url.Action("Login","Utilisateur")"><em class="fa fa-bar-chart">&nbsp;</em> <b style="color:rgb(255, 255, 255) ;font-size:15px">Logout</b></a></li>
+
+		</ul>
+	</div>

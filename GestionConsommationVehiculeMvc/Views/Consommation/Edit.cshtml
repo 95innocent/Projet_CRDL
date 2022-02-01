@@ -1,0 +1,112 @@
+﻿@model GestionConsommationVehiculeMvc.Models.consommation
+
+@{
+    ViewBag.Title = "Edit";
+Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(255, 255, 255)">
+
+<h2>Modification</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdVehicule, "vehicule")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdVehicule", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdVehicule)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdTypeConsommation, "typeconsommation")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdTypeConsommation", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdTypeConsommation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.quantite)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.quantite)
+            @Html.ValidationMessageFor(model => model.quantite)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrixUnitaire)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrixUnitaire)
+            @Html.ValidationMessageFor(model => model.PrixUnitaire)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrixTotal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrixTotal)
+            @Html.ValidationMessageFor(model => model.PrixTotal)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateDebut)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateDebut)
+            @Html.ValidationMessageFor(model => model.DateDebut)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateFin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateFin)
+            @Html.ValidationMessageFor(model => model.DateFin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateConsommation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateConsommation)
+            @Html.ValidationMessageFor(model => model.DateConsommation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumeroDocument)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumeroDocument)
+            @Html.ValidationMessageFor(model => model.NumeroDocument)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Expirable)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Expirable)
+            @Html.ValidationMessageFor(model => model.Expirable)
+        </div><br/>
+
+  <div style="font-size:30px">
+         <p>
+            <input type="submit" value="Save" class=" btn btn-success form-group col-md-2"/>
+        </p>
+        @Html.ActionLink("Back to List", "Index")
+
+    </div>
+    </fieldset>
+}
+
+
+
+</div>

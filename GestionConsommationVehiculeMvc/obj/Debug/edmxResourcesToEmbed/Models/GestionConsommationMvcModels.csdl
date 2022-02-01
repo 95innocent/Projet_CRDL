@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestionConsommationVehiculeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GestionConsommationVehiculeEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="affectations" EntityType="GestionConsommationVehiculeModel.affectation" />
+    <EntitySet Name="consommations" EntityType="GestionConsommationVehiculeModel.consommation" />
+    <EntitySet Name="garages" EntityType="GestionConsommationVehiculeModel.garage" />
+    <EntitySet Name="profiles" EntityType="GestionConsommationVehiculeModel.profile" />
+    <EntitySet Name="reparations" EntityType="GestionConsommationVehiculeModel.reparation" />
+    <EntitySet Name="services" EntityType="GestionConsommationVehiculeModel.service" />
+    <EntitySet Name="typeconsommations" EntityType="GestionConsommationVehiculeModel.typeconsommation" />
+    <EntitySet Name="utilisateurs" EntityType="GestionConsommationVehiculeModel.utilisateur" />
+    <EntitySet Name="vehicules" EntityType="GestionConsommationVehiculeModel.vehicule" />
+    <AssociationSet Name="FK__affectati__IdSer__2C3393D0" Association="GestionConsommationVehiculeModel.FK__affectati__IdSer__2C3393D0">
+      <End Role="service" EntitySet="services" />
+      <End Role="affectation" EntitySet="affectations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__affectati__IdVeh__2A4B4B5E" Association="GestionConsommationVehiculeModel.FK__affectati__IdVeh__2A4B4B5E">
+      <End Role="vehicule" EntitySet="vehicules" />
+      <End Role="affectation" EntitySet="affectations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__consommat__IdTpy__2E1BDC42" Association="GestionConsommationVehiculeModel.FK__consommat__IdTpy__2E1BDC42">
+      <End Role="typeconsommation" EntitySet="typeconsommations" />
+      <End Role="consommation" EntitySet="consommations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__consommat__IdVeh__2D27B809" Association="GestionConsommationVehiculeModel.FK__consommat__IdVeh__2D27B809">
+      <End Role="vehicule" EntitySet="vehicules" />
+      <End Role="consommation" EntitySet="consommations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reparatio__IdGar__29572725" Association="GestionConsommationVehiculeModel.FK__reparatio__IdGar__29572725">
+      <End Role="garage" EntitySet="garages" />
+      <End Role="reparation" EntitySet="reparations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__utilisate__IdPro__267ABA7A" Association="GestionConsommationVehiculeModel.FK__utilisate__IdPro__267ABA7A">
+      <End Role="profile" EntitySet="profiles" />
+      <End Role="utilisateur" EntitySet="utilisateurs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reparatio__IdVeh__286302EC" Association="GestionConsommationVehiculeModel.FK__reparatio__IdVeh__286302EC">
+      <End Role="vehicule" EntitySet="vehicules" />
+      <End Role="reparation" EntitySet="reparations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__utilisate__IdSer__276EDEB3" Association="GestionConsommationVehiculeModel.FK__utilisate__IdSer__276EDEB3">
+      <End Role="service" EntitySet="services" />
+      <End Role="utilisateur" EntitySet="utilisateurs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="affectation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="IdVehicule" Type="Int32" Nullable="false" />
+    <Property Name="IdService" Type="Int32" Nullable="false" />
+    <Property Name="DateAffectation" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateChangement" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="service" Relationship="GestionConsommationVehiculeModel.FK__affectati__IdSer__2C3393D0" FromRole="affectation" ToRole="service" />
+    <NavigationProperty Name="vehicule" Relationship="GestionConsommationVehiculeModel.FK__affectati__IdVeh__2A4B4B5E" FromRole="affectation" ToRole="vehicule" />
+  </EntityType>
+  <EntityType Name="consommation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="IdVehicule" Type="Int32" Nullable="false" />
+    <Property Name="IdTpyeConsommation" Type="Int32" Nullable="false" />
+    <Property Name="quantite" Type="Int32" Nullable="false" />
+    <Property Name="PrixUnitaire" Type="Int32" Nullable="false" />
+    <Property Name="PrixTotal" Type="Int32" Nullable="false" />
+    <Property Name="DateDebut" Type="DateTime" Precision="0" />
+    <Property Name="DateFin" Type="DateTime" Precision="0" />
+    <Property Name="NumeroDocument" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateConsommation" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Expirable" Type="Boolean" />
+    <NavigationProperty Name="typeconsommation" Relationship="GestionConsommationVehiculeModel.FK__consommat__IdTpy__2E1BDC42" FromRole="consommation" ToRole="typeconsommation" />
+    <NavigationProperty Name="vehicule" Relationship="GestionConsommationVehiculeModel.FK__consommat__IdVeh__2D27B809" FromRole="consommation" ToRole="vehicule" />
+  </EntityType>
+  <EntityType Name="garage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NomGarage" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="adresse" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="telephone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="reparations" Relationship="GestionConsommationVehiculeModel.FK__reparatio__IdGar__29572725" FromRole="garage" ToRole="reparation" />
+  </EntityType>
+  <EntityType Name="profile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NomProfile" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="utilisateurs" Relationship="GestionConsommationVehiculeModel.FK__utilisate__IdPro__267ABA7A" FromRole="profile" ToRole="utilisateur" />
+  </EntityType>
+  <EntityType Name="reparation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="IdVehicule" Type="Int32" Nullable="false" />
+    <Property Name="IdGarage" Type="Int32" Nullable="false" />
+    <Property Name="MontantReparation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateReparation" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="garage" Relationship="GestionConsommationVehiculeModel.FK__reparatio__IdGar__29572725" FromRole="reparation" ToRole="garage" />
+    <NavigationProperty Name="vehicule" Relationship="GestionConsommationVehiculeModel.FK__reparatio__IdVeh__286302EC" FromRole="reparation" ToRole="vehicule" />
+  </EntityType>
+  <EntityType Name="service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NomService" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="affectations" Relationship="GestionConsommationVehiculeModel.FK__affectati__IdSer__2C3393D0" FromRole="service" ToRole="affectation" />
+    <NavigationProperty Name="utilisateurs" Relationship="GestionConsommationVehiculeModel.FK__utilisate__IdSer__276EDEB3" FromRole="service" ToRole="utilisateur" />
+  </EntityType>
+  <EntityType Name="typeconsommation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NomTypeConsommation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="document" Type="Boolean" />
+    <NavigationProperty Name="consommations" Relationship="GestionConsommationVehiculeModel.FK__consommat__IdTpy__2E1BDC42" FromRole="typeconsommation" ToRole="consommation" />
+  </EntityType>
+  <EntityType Name="utilisateur">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NomUtilisateur" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PrenomUtilisateur" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IdService" Type="Int32" Nullable="false" />
+    <Property Name="IdProfile" Type="Int32" Nullable="false" />
+    <Property Name="telephone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="profile" Relationship="GestionConsommationVehiculeModel.FK__utilisate__IdPro__267ABA7A" FromRole="utilisateur" ToRole="profile" />
+    <NavigationProperty Name="service" Relationship="GestionConsommationVehiculeModel.FK__utilisate__IdSer__276EDEB3" FromRole="utilisateur" ToRole="service" />
+  </EntityType>
+  <EntityType Name="vehicule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NumeroImatriculation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="modele" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="affectations" Relationship="GestionConsommationVehiculeModel.FK__affectati__IdVeh__2A4B4B5E" FromRole="vehicule" ToRole="affectation" />
+    <NavigationProperty Name="consommations" Relationship="GestionConsommationVehiculeModel.FK__consommat__IdVeh__2D27B809" FromRole="vehicule" ToRole="consommation" />
+    <NavigationProperty Name="reparations" Relationship="GestionConsommationVehiculeModel.FK__reparatio__IdVeh__286302EC" FromRole="vehicule" ToRole="reparation" />
+  </EntityType>
+  <Association Name="FK__affectati__IdSer__2C3393D0">
+    <End Role="service" Type="GestionConsommationVehiculeModel.service" Multiplicity="1" />
+    <End Role="affectation" Type="GestionConsommationVehiculeModel.affectation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="affectation">
+        <PropertyRef Name="IdService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__affectati__IdVeh__2A4B4B5E">
+    <End Role="vehicule" Type="GestionConsommationVehiculeModel.vehicule" Multiplicity="1" />
+    <End Role="affectation" Type="GestionConsommationVehiculeModel.affectation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehicule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="affectation">
+        <PropertyRef Name="IdVehicule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__consommat__IdTpy__2E1BDC42">
+    <End Role="typeconsommation" Type="GestionConsommationVehiculeModel.typeconsommation" Multiplicity="1" />
+    <End Role="consommation" Type="GestionConsommationVehiculeModel.consommation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typeconsommation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="consommation">
+        <PropertyRef Name="IdTpyeConsommation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__consommat__IdVeh__2D27B809">
+    <End Role="vehicule" Type="GestionConsommationVehiculeModel.vehicule" Multiplicity="1" />
+    <End Role="consommation" Type="GestionConsommationVehiculeModel.consommation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehicule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="consommation">
+        <PropertyRef Name="IdVehicule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__reparatio__IdGar__29572725">
+    <End Role="garage" Type="GestionConsommationVehiculeModel.garage" Multiplicity="1" />
+    <End Role="reparation" Type="GestionConsommationVehiculeModel.reparation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="garage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="reparation">
+        <PropertyRef Name="IdGarage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__utilisate__IdPro__267ABA7A">
+    <End Role="profile" Type="GestionConsommationVehiculeModel.profile" Multiplicity="1" />
+    <End Role="utilisateur" Type="GestionConsommationVehiculeModel.utilisateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="utilisateur">
+        <PropertyRef Name="IdProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__reparatio__IdVeh__286302EC">
+    <End Role="vehicule" Type="GestionConsommationVehiculeModel.vehicule" Multiplicity="1" />
+    <End Role="reparation" Type="GestionConsommationVehiculeModel.reparation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehicule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="reparation">
+        <PropertyRef Name="IdVehicule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__utilisate__IdSer__276EDEB3">
+    <End Role="service" Type="GestionConsommationVehiculeModel.service" Multiplicity="1" />
+    <End Role="utilisateur" Type="GestionConsommationVehiculeModel.utilisateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="utilisateur">
+        <PropertyRef Name="IdService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

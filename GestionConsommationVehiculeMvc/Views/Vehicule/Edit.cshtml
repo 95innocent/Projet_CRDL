@@ -1,0 +1,83 @@
+﻿@model GestionConsommationVehiculeMvc.Models.vehicule
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color: rgb(255, 255, 255)">
+
+    <h2>Modification</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend></legend>
+
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.NumeroImatriculation)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.NumeroImatriculation)
+                @Html.ValidationMessageFor(model => model.NumeroImatriculation)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.modele)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.modele)
+                @Html.ValidationMessageFor(model => model.modele)
+            </div>
+
+         
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.marque)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.marque)
+                @Html.ValidationMessageFor(model => model.marque)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.NumeroCarteRose)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.NumeroCarteRose)
+                @Html.ValidationMessageFor(model => model.NumeroCarteRose)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Numerochasse)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Numerochasse)
+                @Html.ValidationMessageFor(model => model.Numerochasse)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.couleur)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.couleur)
+                @Html.ValidationMessageFor(model => model.couleur)
+            </div><br/>
+
+        
+     <div style="font-size:30px">
+         <p>
+            <input type="submit" value="Save" class=" btn btn-success form-group col-md-2"/>
+        </p>
+        @Html.ActionLink("Back to List", "Index")
+
+    </div>
+        </fieldset>
+    }
+
+    
+
+</div>

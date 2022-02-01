@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8bb7e5527e494d86849b9e1e834681c5" Name="Diagramme1">
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.affectation" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.consommation" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.garage" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.profile" Width="1.5" PointX="3.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.reparation" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.service" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.typeconsommation" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.utilisateur" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestionConsommationVehiculeModel.vehicule" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__affectati__IdSer__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__affectati__IdVeh__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__consommat__IdTpy__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__consommat__IdVeh__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__reparatio__IdGar__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__utilisate__IdPro__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__reparatio__IdVeh__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="GestionConsommationVehiculeModel.FK__utilisate__IdSer__276EDEB3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,72 @@
+﻿@model GestionConsommationVehiculeMvc.Models.affectation
+
+@{
+    ViewBag.Title = "Edit";
+Layout = "~/Views/Layouts/_Default.cshtml";
+}
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="background-color:rgb(255, 255, 255)">
+
+<h2>Modification</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdVehicule, "vehicule")
+
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdVehicule", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdVehicule)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdService, "service")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdService", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdService)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdUser, "utilisateur")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdUser", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdUser)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateAffectation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateAffectation)
+            @Html.ValidationMessageFor(model => model.DateAffectation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.occupe)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.occupe)
+            @Html.ValidationMessageFor(model => model.occupe)
+        </div>
+
+ <div style="font-size:30px">
+         <p>
+            <input type="submit" value="Save" class=" btn btn-success form-group col-md-2"/>
+        </p>
+        @Html.ActionLink("Back to List", "Index")
+
+    </div>
+    </fieldset>
+}
+
+
+
+</div>

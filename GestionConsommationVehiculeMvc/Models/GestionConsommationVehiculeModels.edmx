@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GestionConsommationVehiculeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="GestionConsommationVehiculeModelStoreContainer">
+          <EntitySet Name="affectation" EntityType="GestionConsommationVehiculeModel.Store.affectation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="consommations" EntityType="GestionConsommationVehiculeModel.Store.consommations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="profile" EntityType="GestionConsommationVehiculeModel.Store.profile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="service" EntityType="GestionConsommationVehiculeModel.Store.service" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="typeconsommation" EntityType="GestionConsommationVehiculeModel.Store.typeconsommation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="utilisateur" EntityType="GestionConsommationVehiculeModel.Store.utilisateur" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="vehicule" EntityType="GestionConsommationVehiculeModel.Store.vehicule" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__affectati__IdSer__6D0D32F4" Association="GestionConsommationVehiculeModel.Store.FK__affectati__IdSer__6D0D32F4">
+            <End Role="service" EntitySet="service" />
+            <End Role="affectation" EntitySet="affectation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__affectati__IdUse__6E01572D" Association="GestionConsommationVehiculeModel.Store.FK__affectati__IdUse__6E01572D">
+            <End Role="utilisateur" EntitySet="utilisateur" />
+            <End Role="affectation" EntitySet="affectation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__affectati__IdVeh__6C190EBB" Association="GestionConsommationVehiculeModel.Store.FK__affectati__IdVeh__6C190EBB">
+            <End Role="vehicule" EntitySet="vehicule" />
+            <End Role="affectation" EntitySet="affectation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__consommat__IdTyp__03F0984C" Association="GestionConsommationVehiculeModel.Store.FK__consommat__IdTyp__03F0984C">
+            <End Role="typeconsommation" EntitySet="typeconsommation" />
+            <End Role="consommations" EntitySet="consommations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__consommat__IdVeh__02FC7413" Association="GestionConsommationVehiculeModel.Store.FK__consommat__IdVeh__02FC7413">
+            <End Role="vehicule" EntitySet="vehicule" />
+            <End Role="consommations" EntitySet="consommations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__IdPro__693CA210" Association="GestionConsommationVehiculeModel.Store.FK__utilisate__IdPro__693CA210">
+            <End Role="profile" EntitySet="profile" />
+            <End Role="utilisateur" EntitySet="utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__IdSer__68487DD7" Association="GestionConsommationVehiculeModel.Store.FK__utilisate__IdSer__68487DD7">
+            <End Role="service" EntitySet="service" />
+            <End Role="utilisateur" EntitySet="utilisateur" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="affectation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdVehicule" Type="int" Nullable="false" />
+          <Property Name="IdService" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="DateAffectation" Type="date" Nullable="false" />
+          <Property Name="occupe" Type="bit" />
+        </EntityType>
+        <EntityType Name="consommations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdVehicule" Type="int" Nullable="false" />
+          <Property Name="IdTypeConsommation" Type="int" Nullable="false" />
+          <Property Name="quantite" Type="float" Nullable="false" />
+          <Property Name="PrixUnitaire" Type="int" Nullable="false" />
+          <Property Name="PrixTotal" Type="float" Nullable="false" />
+          <Property Name="DateDebut" Type="date" />
+          <Property Name="DateFin" Type="date" />
+          <Property Name="DateConsommation" Type="date" Nullable="false" />
+          <Property Name="NumeroDocument" Type="varchar" MaxLength="50" />
+          <Property Name="Expirable" Type="bit" />
+        </EntityType>
+        <EntityType Name="profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NomProfile" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NomService" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="typeconsommation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NomTypeConsommation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="document" Type="bit" />
+        </EntityType>
+        <EntityType Name="utilisateur">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Prenon" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="telephone" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdService" Type="int" Nullable="false" />
+          <Property Name="IdProfile" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vehicule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroImatriculation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="modele" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="marque" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroCarteRose" Type="varchar" MaxLength="50" />
+          <Property Name="Numerochasse" Type="varchar" MaxLength="50" />
+          <Property Name="couleur" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__affectati__IdSer__6D0D32F4">
+          <End Role="service" Type="GestionConsommationVehiculeModel.Store.service" Multiplicity="1" />
+          <End Role="affectation" Type="GestionConsommationVehiculeModel.Store.affectation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="affectation">
+              <PropertyRef Name="IdService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__affectati__IdUse__6E01572D">
+          <End Role="utilisateur" Type="GestionConsommationVehiculeModel.Store.utilisateur" Multiplicity="1" />
+          <End Role="affectation" Type="GestionConsommationVehiculeModel.Store.affectation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="utilisateur">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="affectation">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__affectati__IdVeh__6C190EBB">
+          <End Role="vehicule" Type="GestionConsommationVehiculeModel.Store.vehicule" Multiplicity="1" />
+          <End Role="affectation" Type="GestionConsommationVehiculeModel.Store.affectation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehicule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="affectation">
+              <PropertyRef Name="IdVehicule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__consommat__IdTyp__03F0984C">
+          <End Role="typeconsommation" Type="GestionConsommationVehiculeModel.Store.typeconsommation" Multiplicity="1" />
+          <End Role="consommations" Type="GestionConsommationVehiculeModel.Store.consommations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typeconsommation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="consommations">
+              <PropertyRef Name="IdTypeConsommation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__consommat__IdVeh__02FC7413">
+          <End Role="vehicule" Type="GestionConsommationVehiculeModel.Store.vehicule" Multiplicity="1" />
+          <End Role="consommations" Type="GestionConsommationVehiculeModel.Store.consommations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehicule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="consommations">
+              <PropertyRef Name="IdVehicule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__IdPro__693CA210">
+          <End Role="profile" Type="GestionConsommationVehiculeModel.Store.profile" Multiplicity="1" />
+          <End Role="utilisateur" Type="GestionConsommationVehiculeModel.Store.utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="IdProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__IdSer__68487DD7">
+          <End Role="service" Type="GestionConsommationVehiculeModel.Store.service" Multiplicity="1" />
+          <End Role="utilisateur" Type="GestionConsommationVehiculeModel.Store.utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="IdService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GestionConsommationVehiculeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GestionConsommationVehiculeEntities12" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="affectations" EntityType="GestionConsommationVehiculeModel.affectation" />
+          <EntitySet Name="consommations" EntityType="GestionConsommationVehiculeModel.consommation" />
+          <EntitySet Name="profiles" EntityType="GestionConsommationVehiculeModel.profile" />
+          <EntitySet Name="services" EntityType="GestionConsommationVehiculeModel.service" />
+          <EntitySet Name="typeconsommations" EntityType="GestionConsommationVehiculeModel.typeconsommation" />
+          <EntitySet Name="utilisateurs" EntityType="GestionConsommationVehiculeModel.utilisateur" />
+          <EntitySet Name="vehicules" EntityType="GestionConsommationVehiculeModel.vehicule" />
+          <AssociationSet Name="FK__affectati__IdSer__6D0D32F4" Association="GestionConsommationVehiculeModel.FK__affectati__IdSer__6D0D32F4">
+            <End Role="service" EntitySet="services" />
+            <End Role="affectation" EntitySet="affectations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__affectati__IdUse__6E01572D" Association="GestionConsommationVehiculeModel.FK__affectati__IdUse__6E01572D">
+            <End Role="utilisateur" EntitySet="utilisateurs" />
+            <End Role="affectation" EntitySet="affectations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__affectati__IdVeh__6C190EBB" Association="GestionConsommationVehiculeModel.FK__affectati__IdVeh__6C190EBB">
+            <End Role="vehicule" EntitySet="vehicules" />
+            <End Role="affectation" EntitySet="affectations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__consommat__IdTyp__03F0984C" Association="GestionConsommationVehiculeModel.FK__consommat__IdTyp__03F0984C">
+            <End Role="typeconsommation" EntitySet="typeconsommations" />
+            <End Role="consommations" EntitySet="consommations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__consommat__IdVeh__02FC7413" Association="GestionConsommationVehiculeModel.FK__consommat__IdVeh__02FC7413">
+            <End Role="vehicule" EntitySet="vehicules" />
+            <End Role="consommations" EntitySet="consommations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__IdPro__693CA210" Association="GestionConsommationVehiculeModel.FK__utilisate__IdPro__693CA210">
+            <End Role="profile" EntitySet="profiles" />
+            <End Role="utilisateur" EntitySet="utilisateurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__IdSer__68487DD7" Association="GestionConsommationVehiculeModel.FK__utilisate__IdSer__68487DD7">
+            <End Role="service" EntitySet="services" />
+            <End Role="utilisateur" EntitySet="utilisateurs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="affectation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdVehicule" Type="Int32" Nullable="false" />
+          <Property Name="IdService" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="DateAffectation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="occupe" Type="Boolean" />
+          <NavigationProperty Name="service" Relationship="GestionConsommationVehiculeModel.FK__affectati__IdSer__6D0D32F4" FromRole="affectation" ToRole="service" />
+          <NavigationProperty Name="utilisateur" Relationship="GestionConsommationVehiculeModel.FK__affectati__IdUse__6E01572D" FromRole="affectation" ToRole="utilisateur" />
+          <NavigationProperty Name="vehicule" Relationship="GestionConsommationVehiculeModel.FK__affectati__IdVeh__6C190EBB" FromRole="affectation" ToRole="vehicule" />
+        </EntityType>
+        <EntityType Name="consommation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdVehicule" Type="Int32" Nullable="false" />
+          <Property Name="IdTypeConsommation" Type="Int32" Nullable="false" />
+          <Property Name="quantite" Type="Double" Nullable="false" />
+          <Property Name="PrixUnitaire" Type="Int32" Nullable="false" />
+          <Property Name="PrixTotal" Type="Double" Nullable="false" />
+          <Property Name="DateDebut" Type="DateTime" Precision="0" />
+          <Property Name="DateFin" Type="DateTime" Precision="0" />
+          <Property Name="DateConsommation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NumeroDocument" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Expirable" Type="Boolean" />
+          <NavigationProperty Name="typeconsommation" Relationship="GestionConsommationVehiculeModel.FK__consommat__IdTyp__03F0984C" FromRole="consommations" ToRole="typeconsommation" />
+          <NavigationProperty Name="vehicule" Relationship="GestionConsommationVehiculeModel.FK__consommat__IdVeh__02FC7413" FromRole="consommations" ToRole="vehicule" />
+        </EntityType>
+        <EntityType Name="profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NomProfile" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="utilisateurs" Relationship="GestionConsommationVehiculeModel.FK__utilisate__IdPro__693CA210" FromRole="profile" ToRole="utilisateur" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NomService" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="affectations" Relationship="GestionConsommationVehiculeModel.FK__affectati__IdSer__6D0D32F4" FromRole="service" ToRole="affectation" />
+          <NavigationProperty Name="utilisateurs" Relationship="GestionConsommationVehiculeModel.FK__utilisate__IdSer__68487DD7" FromRole="service" ToRole="utilisateur" />
+        </EntityType>
+        <EntityType Name="typeconsommation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NomTypeConsommation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="document" Type="Boolean" />
+          <NavigationProperty Name="consommations" Relationship="GestionConsommationVehiculeModel.FK__consommat__IdTyp__03F0984C" FromRole="typeconsommation" ToRole="consommations" />
+        </EntityType>
+        <EntityType Name="utilisateur">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Prenon" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="telephone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IdService" Type="Int32" Nullable="false" />
+          <Property Name="IdProfile" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="affectations" Relationship="GestionConsommationVehiculeModel.FK__affectati__IdUse__6E01572D" FromRole="utilisateur" ToRole="affectation" />
+          <NavigationProperty Name="profile" Relationship="GestionConsommationVehiculeModel.FK__utilisate__IdPro__693CA210" FromRole="utilisateur" ToRole="profile" />
+          <NavigationProperty Name="service" Relationship="GestionConsommationVehiculeModel.FK__utilisate__IdSer__68487DD7" FromRole="utilisateur" ToRole="service" />
+        </EntityType>
+        <EntityType Name="vehicule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroImatriculation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modele" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="marque" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NumeroCarteRose" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Numerochasse" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="couleur" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="affectations" Relationship="GestionConsommationVehiculeModel.FK__affectati__IdVeh__6C190EBB" FromRole="vehicule" ToRole="affectation" />
+          <NavigationProperty Name="consommations" Relationship="GestionConsommationVehiculeModel.FK__consommat__IdVeh__02FC7413" FromRole="vehicule" ToRole="consommations" />
+        </EntityType>
+        <Association Name="FK__affectati__IdSer__6D0D32F4">
+          <End Role="service" Type="GestionConsommationVehiculeModel.service" Multiplicity="1" />
+          <End Role="affectation" Type="GestionConsommationVehiculeModel.affectation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="affectation">
+              <PropertyRef Name="IdService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__affectati__IdUse__6E01572D">
+          <End Role="utilisateur" Type="GestionConsommationVehiculeModel.utilisateur" Multiplicity="1" />
+          <End Role="affectation" Type="GestionConsommationVehiculeModel.affectation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="utilisateur">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="affectation">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__affectati__IdVeh__6C190EBB">
+          <End Role="vehicule" Type="GestionConsommationVehiculeModel.vehicule" Multiplicity="1" />
+          <End Role="affectation" Type="GestionConsommationVehiculeModel.affectation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehicule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="affectation">
+              <PropertyRef Name="IdVehicule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__consommat__IdTyp__03F0984C">
+          <End Role="typeconsommation" Type="GestionConsommationVehiculeModel.typeconsommation" Multiplicity="1" />
+          <End Role="consommations" Type="GestionConsommationVehiculeModel.consommation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typeconsommation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="consommations">
+              <PropertyRef Name="IdTypeConsommation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__consommat__IdVeh__02FC7413">
+          <End Role="vehicule" Type="GestionConsommationVehiculeModel.vehicule" Multiplicity="1" />
+          <End Role="consommations" Type="GestionConsommationVehiculeModel.consommation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehicule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="consommations">
+              <PropertyRef Name="IdVehicule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__IdPro__693CA210">
+          <End Role="profile" Type="GestionConsommationVehiculeModel.profile" Multiplicity="1" />
+          <End Role="utilisateur" Type="GestionConsommationVehiculeModel.utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="IdProfile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__IdSer__68487DD7">
+          <End Role="service" Type="GestionConsommationVehiculeModel.service" Multiplicity="1" />
+          <End Role="utilisateur" Type="GestionConsommationVehiculeModel.utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="IdService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GestionConsommationVehiculeModelStoreContainer" CdmEntityContainer="GestionConsommationVehiculeEntities12">
+          <EntitySetMapping Name="affectations">
+            <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.affectation">
+              <MappingFragment StoreEntitySet="affectation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdVehicule" ColumnName="IdVehicule" />
+                <ScalarProperty Name="IdService" ColumnName="IdService" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="DateAffectation" ColumnName="DateAffectation" />
+                <ScalarProperty Name="occupe" ColumnName="occupe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="consommations">
+            <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.consommation">
+              <MappingFragment StoreEntitySet="consommations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdVehicule" ColumnName="IdVehicule" />
+                <ScalarProperty Name="IdTypeConsommation" ColumnName="IdTypeConsommation" />
+                <ScalarProperty Name="quantite" ColumnName="quantite" />
+                <ScalarProperty Name="PrixUnitaire" ColumnName="PrixUnitaire" />
+                <ScalarProperty Name="PrixTotal" ColumnName="PrixTotal" />
+                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="DateConsommation" ColumnName="DateConsommation" />
+                <ScalarProperty Name="NumeroDocument" ColumnName="NumeroDocument" />
+                <ScalarProperty Name="Expirable" ColumnName="Expirable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profiles">
+            <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.profile">
+              <MappingFragment StoreEntitySet="profile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NomProfile" ColumnName="NomProfile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NomService" ColumnName="NomService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="typeconsommations">
+            <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.typeconsommation">
+              <MappingFragment StoreEntitySet="typeconsommation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NomTypeConsommation" ColumnName="NomTypeConsommation" />
+                <ScalarProperty Name="document" ColumnName="document" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="utilisateurs">
+            <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.utilisateur">
+              <MappingFragment StoreEntitySet="utilisateur">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenon" ColumnName="Prenon" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="IdService" ColumnName="IdService" />
+                <ScalarProperty Name="IdProfile" ColumnName="IdProfile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vehicules">
+            <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.vehicule">
+              <MappingFragment StoreEntitySet="vehicule">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumeroImatriculation" ColumnName="NumeroImatriculation" />
+                <ScalarProperty Name="modele" ColumnName="modele" />
+                <ScalarProperty Name="marque" ColumnName="marque" />
+                <ScalarProperty Name="NumeroCarteRose" ColumnName="NumeroCarteRose" />
+                <ScalarProperty Name="Numerochasse" ColumnName="Numerochasse" />
+                <ScalarProperty Name="couleur" ColumnName="couleur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

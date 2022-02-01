@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GestionConsommationVehiculeModelStoreContainer" CdmEntityContainer="GestionConsommationVehiculeEntities12">
+    <EntitySetMapping Name="affectations">
+      <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.affectation">
+        <MappingFragment StoreEntitySet="affectation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdVehicule" ColumnName="IdVehicule" />
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="DateAffectation" ColumnName="DateAffectation" />
+          <ScalarProperty Name="occupe" ColumnName="occupe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="consommations">
+      <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.consommation">
+        <MappingFragment StoreEntitySet="consommations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdVehicule" ColumnName="IdVehicule" />
+          <ScalarProperty Name="IdTypeConsommation" ColumnName="IdTypeConsommation" />
+          <ScalarProperty Name="quantite" ColumnName="quantite" />
+          <ScalarProperty Name="PrixUnitaire" ColumnName="PrixUnitaire" />
+          <ScalarProperty Name="PrixTotal" ColumnName="PrixTotal" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="DateConsommation" ColumnName="DateConsommation" />
+          <ScalarProperty Name="NumeroDocument" ColumnName="NumeroDocument" />
+          <ScalarProperty Name="Expirable" ColumnName="Expirable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profiles">
+      <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.profile">
+        <MappingFragment StoreEntitySet="profile">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomProfile" ColumnName="NomProfile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="services">
+      <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.service">
+        <MappingFragment StoreEntitySet="service">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomService" ColumnName="NomService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typeconsommations">
+      <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.typeconsommation">
+        <MappingFragment StoreEntitySet="typeconsommation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomTypeConsommation" ColumnName="NomTypeConsommation" />
+          <ScalarProperty Name="document" ColumnName="document" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="utilisateurs">
+      <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.utilisateur">
+        <MappingFragment StoreEntitySet="utilisateur">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenon" ColumnName="Prenon" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+          <ScalarProperty Name="IdProfile" ColumnName="IdProfile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehicules">
+      <EntityTypeMapping TypeName="GestionConsommationVehiculeModel.vehicule">
+        <MappingFragment StoreEntitySet="vehicule">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumeroImatriculation" ColumnName="NumeroImatriculation" />
+          <ScalarProperty Name="modele" ColumnName="modele" />
+          <ScalarProperty Name="marque" ColumnName="marque" />
+          <ScalarProperty Name="NumeroCarteRose" ColumnName="NumeroCarteRose" />
+          <ScalarProperty Name="Numerochasse" ColumnName="Numerochasse" />
+          <ScalarProperty Name="couleur" ColumnName="couleur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
