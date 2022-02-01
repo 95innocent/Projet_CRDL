@@ -58,7 +58,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
             {
                 db.affectations.Add(affectation);
                 db.SaveChanges();
-                TempData["msg"] = "Insertion faite avec Succes dans la table Affectation";
+                TempData["msg"] =  "Insertion faite avec Succes dans la table Affectation";
                 return RedirectToAction("Index");
             }
 
