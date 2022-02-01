@@ -23,7 +23,8 @@ table.dataTable th.dt-justify, table.dataTable td.dt-justify {
     text-align: justify
 }
 
-table.dataTable th.dt-nowrap, table.dataTable td.dt-nowrap {
+table.dataTable th.dt-nowrap, table.dataTable td.dt-nowrap 
+{
     white-space: nowrap
 }
 
