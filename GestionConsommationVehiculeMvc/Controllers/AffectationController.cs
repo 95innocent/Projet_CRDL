@@ -14,7 +14,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
         private GestionConsommationVehiculeEntities12 db = new GestionConsommationVehiculeEntities12();
 
         //
-        // GET: /Affectation/
+        // GET:  /Affectation/
 
         public ActionResult Index()
         {
