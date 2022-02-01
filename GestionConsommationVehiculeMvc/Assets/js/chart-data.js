@@ -4,7 +4,8 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*1000)};
 		labels : ["January","February","March","April","May","June","July"],
 		datasets : [
 			{
-				label: "My First dataset",
+
+			    label: "My First dataset",
 				fillColor : "rgba(220,220,220,0.2)",
 				strokeColor : "rgba(220,220,220,1)",
 				pointColor : "rgba(220,220,220,1)",
