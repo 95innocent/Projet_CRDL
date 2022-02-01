@@ -19,7 +19,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
         public ActionResult Index()
         {
             ViewBag.msg = TempData["msg"] as string;
-            var affectations = db.affectations.Include(a => a.service).Include(a => a.utilisateur).Include(a => a.vehicule);
+            var  affectations = db.affectations.Include(a => a.service).Include(a => a.utilisateur).Include(a => a.vehicule);
             return View(affectations.ToList());
         }
 
