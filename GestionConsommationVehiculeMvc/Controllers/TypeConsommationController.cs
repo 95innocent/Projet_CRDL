@@ -118,6 +118,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
             typeconsommation typeconsommation = db.typeconsommations.Find(id);
             db.typeconsommations.Remove(typeconsommation);
             db.SaveChanges();
+
             TempData["msg"] = "Suppression faite avec Succes dans la table TypeConsommation";
             return RedirectToAction("Index");
         }
