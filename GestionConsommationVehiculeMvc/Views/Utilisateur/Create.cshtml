@@ -19,8 +19,7 @@
             <label>Nom:</label>
             <input type="text" name="Nom" placeholder="Entrer Votre Nom" autocomplete="off" required="required" class="form-control"/>
       </div>
-        
-      <div class="col-md-6">
+       <div class="col-md-6">
             <label>Prenom:</label>
             <input type="text" name="Prenon" placeholder="Entrer Votre Prenom" autocomplete="off" required="required" class="form-control"/>
       </div>
@@ -50,6 +49,7 @@
         <div class="col-md-6">
             @Html.DropDownList("IdService", null, "selectionner Service",
             htmlAttributes: new { @class = "form-control" })
+
             @Html.ValidationMessageFor(model => model.IdService)
         </div>
 
