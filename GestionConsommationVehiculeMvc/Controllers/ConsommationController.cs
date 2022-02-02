@@ -37,7 +37,6 @@ namespace GestionConsommationVehiculeMvc.Controllers
          public ActionResult Index4()
          {
              ViewBag.msg = TempData["msg"] as string;
-
              var consommations = db.consommations.Include(c => c.typeconsommation).Include(c => c.vehicule);
              return View(consommations.ToList());
          }
