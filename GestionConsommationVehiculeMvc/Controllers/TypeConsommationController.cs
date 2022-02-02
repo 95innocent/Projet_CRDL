@@ -18,6 +18,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
 
         public ActionResult  Index()
         {
+
             ViewBag.msg = TempData["msg"] as string;
             return View(db.typeconsommations.ToList());
         }
