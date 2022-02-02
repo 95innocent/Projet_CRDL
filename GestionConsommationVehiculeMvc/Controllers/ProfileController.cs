@@ -15,8 +15,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
 
         //
         // GET: /Profile/
-
-        public ActionResult Index()
+       public ActionResult Index()
         {
             ViewBag.msg = TempData["msg"] as string;
             return View(db.profiles.ToList());
