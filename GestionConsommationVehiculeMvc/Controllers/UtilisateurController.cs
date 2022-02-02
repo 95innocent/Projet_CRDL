@@ -33,7 +33,6 @@ namespace GestionConsommationVehiculeMvc.Controllers
 
         public ActionResult Details(int id = 0)
         {
-
             utilisateur utilisateur = db.utilisateurs.Find(id);
 
             if (utilisateur == null)
