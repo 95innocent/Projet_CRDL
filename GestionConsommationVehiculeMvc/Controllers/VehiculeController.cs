@@ -16,6 +16,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
         //
         // GET: /Vehicule/
 
+
         public ActionResult Index()
         {
             ViewBag.msg = TempData["msg"] as string;
