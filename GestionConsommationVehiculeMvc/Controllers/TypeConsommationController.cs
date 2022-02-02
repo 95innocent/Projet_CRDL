@@ -100,6 +100,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
         public ActionResult Delete(int id = 0)
         {
             typeconsommation typeconsommation = db.typeconsommations.Find(id);
+
             if (typeconsommation == null)
             {
                 return HttpNotFound();
