@@ -12,7 +12,6 @@ namespace GestionConsommationVehiculeMvc.Controllers
     public class ConsommationController : Controller
     {
         private GestionConsommationVehiculeEntities12 db = new GestionConsommationVehiculeEntities12();
-
         //
         // GET: /Consommation/
         public ActionResult Index3()
