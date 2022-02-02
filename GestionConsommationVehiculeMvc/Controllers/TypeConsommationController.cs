@@ -39,6 +39,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
         //
         // GET: /TypeConsommation/Create
 
+
         public ActionResult Create()
         {
             TempData["msg"] = "Insertion faite avec Succes dans la table TypeConsommation";
