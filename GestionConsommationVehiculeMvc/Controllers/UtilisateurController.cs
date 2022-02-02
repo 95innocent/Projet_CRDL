@@ -37,6 +37,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
 
             if (utilisateur == null)
             {
+
                 return HttpNotFound();
             }
             return View(utilisateur);
