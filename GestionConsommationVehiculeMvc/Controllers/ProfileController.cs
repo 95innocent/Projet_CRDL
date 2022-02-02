@@ -37,6 +37,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
         //
         // GET: /Profile/Create
 
+
         public ActionResult Create()
         {
             TempData["msg"] = "Insertion faite avec Succes dans la table Profile";
