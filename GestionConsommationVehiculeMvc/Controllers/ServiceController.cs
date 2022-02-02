@@ -43,6 +43,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
         {
             TempData["msg"] = "Insertion faite avec Succes dans la table Service";
              return View();
+
         }
 
         //
