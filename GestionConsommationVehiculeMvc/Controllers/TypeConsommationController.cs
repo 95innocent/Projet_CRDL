@@ -80,6 +80,7 @@ namespace GestionConsommationVehiculeMvc.Controllers
         //
         // POST: /TypeConsommation/Edit/5
 
+
         [HttpPost]
         public ActionResult Edit(typeconsommation typeconsommation)
         {
